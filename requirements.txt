@@ -1,0 +1,24 @@
+
+requirements.txt --- AI Blog Generator 
+
+ Core: Fine-Tuning Stack  
+unsloth                    # QLoRA fine-tuning with optimised kernels
+transformers>=4.45.0       # HuggingFace Transformers (model + tokenizer)
+datasets>=2.20.0           # Dataset loading from HuggingFace Hub
+trl>=0.12.0                # SFTTrainer for supervised fine-tuning
+accelerate>=0.30.0         # Mixed precision & multi-GPU support
+bitsandbytes>=0.43.0       # 4-bit NF4 quantisation (QLoRA requirement)
+
+Deployment: Gradio UI 
+gradio>=5.0.0              # Gradio Blocks UI with Soft theme
+
+ Grok LLM API Integration (user-requested extension)
+openai>=1.54.0             # OpenAI-compatible client for Grok API
+python-dotenv>=1.0.0       # Load GROK_API_KEY from .env file
+
+ PyTorch (install separately --- version depends on CUDA version)
+# For CUDA 12.1: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+# For CUDA 11.8: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+# For CPU only:  pip install torch
+# Visit: https://pytorch.org/get-started/locally/
+# torch>=2.1.0
